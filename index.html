@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width">
+
+ <title>Practica</title>
+
+</head>
+
+<body>
+
+  <H1 style="text-align: center;">Parctica de PHP "servicio Simple"</H1>
+  <h2>Aplicaciones web orientadas a servicios </h2>
+
+  
+ <button onclick="ejecuta()">
+  Ver quien soy
+ </button>
+
+ <script>
+
+  async function ejecuta() {
+   try {
+    const resp =
+     await fetch("servicio.php")
+    if (resp.ok) {
+     const texto =
+      await resp.text()
+     alert(texto)
+    } else {
+     throw new Error(
+      resp.statusText)
+    }
+   } catch (error) {
+    console.error(error)
+    alert(error.message)
+   }
+  }
+
+ </script>
+
+</body>
+
+</html>
